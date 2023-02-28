@@ -7,7 +7,7 @@ import pygame_gui
 import data_struct
 
 # ASCII printables (last char in string is space)
-x = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ "
+x = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&'()*+,-.\/:;<=>?@[]^_`{|}~ "
 
 
 class TypeMaster:

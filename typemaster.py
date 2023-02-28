@@ -1,7 +1,9 @@
-import pygame
-import pygame_gui
 import random
 import sqlite3
+
+import pygame
+import pygame_gui
+
 import data_struct
 
 # ASCII printables (last char in string is space)
@@ -356,8 +358,8 @@ class TypeMaster:
                             # if the first in the queue is the same as first item to be typed
                             # and there are no incorrect characters
                             if (
-                                typed_text.peek() == remaining_chars.peek()
-                                and incorrect_typed_chars.is_empty()
+                                    typed_text.peek() == remaining_chars.peek()
+                                    and incorrect_typed_chars.is_empty()
                             ):
                                 # add the character to the correct characters stack
                                 # while removing from the remaining characters queue
@@ -367,11 +369,11 @@ class TypeMaster:
                                 # update the status bar by calculating the percentage
                                 type_progress.percent_full = int(
                                     (
-                                        1
-                                        - (
-                                            remaining_chars.items_left()
-                                            / total_char_count
-                                        )
+                                            1
+                                            - (
+                                                    remaining_chars.items_left()
+                                                    / total_char_count
+                                            )
                                     )
                                     * 100
                                 )
@@ -387,8 +389,8 @@ class TypeMaster:
                                 typo_count += 1
                         # allow backspace ONLY if there are typos so you cannot backspace correct chr
                         if (
-                            event.key == pygame.K_BACKSPACE
-                            and not incorrect_typed_chars.is_empty()
+                                event.key == pygame.K_BACKSPACE
+                                and not incorrect_typed_chars.is_empty()
                         ):
                             # remove last typo chr (as stored in stack)
                             incorrect_typed_chars.pop()
@@ -503,9 +505,9 @@ class TypeMaster:
         # calculate stats
         else:
             typed = self.session_typed
-            avgtime = f"{round(self.session_time/self.session_typed, 2)}s"
-            avgwpm = f"{round(self.session_wpm/self.session_typed, 2)}"
-            avgaccuracy = f"{round(self.session_accuracy/self.session_typed, 2)}%"
+            avgtime = f"{round(self.session_time / self.session_typed, 2)}s"
+            avgwpm = f"{round(self.session_wpm / self.session_typed, 2)}"
+            avgaccuracy = f"{round(self.session_accuracy / self.session_typed, 2)}%"
         # set up stats
         stats_manager = pygame_gui.UIManager(self.resolution)
         pygame.display.set_caption("session stats")
@@ -624,6 +626,7 @@ class TypeMaster:
         )
         # newtext variable
         new_text = False
+
         # extra apostrophe due to sqlite3 syntaxing
         def add_apostrophes(s):
             result = ""
@@ -648,8 +651,8 @@ class TypeMaster:
                         text_window.set_text("")
                         text_entry.set_text("")
                     if (
-                        event.ui_element == save_button
-                        and len(text_entry.get_text()) != 0
+                            event.ui_element == save_button
+                            and len(text_entry.get_text()) != 0
                     ):
                         if not new_text:
                             changeid = text_select.selected_option

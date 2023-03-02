@@ -367,16 +367,7 @@ class TypeMaster:
                                 # remove the character from the front of the typed text queue
                                 typed_text.dequeue()
                                 # update the status bar by calculating the percentage
-                                type_progress.percent_full = int(
-                                    (
-                                            1
-                                            - (
-                                                    remaining_chars.items_left()
-                                                    / total_char_count
-                                            )
-                                    )
-                                    * 100
-                                )
+                                type_progress.percent_full = int((1- (remaining_chars.items_left()/ total_char_count)) * 100)
                             else:
                                 # if the first in the queue is NOT the same as the first item to be typed
                                 # if the character is a spacebar push an underscore as the spacebar is invisible
